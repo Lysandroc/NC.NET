@@ -1,0 +1,19 @@
+﻿@helper Erro(string mensagem)
+{
+    if (!(@mensagem == null))
+    {
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Atenção!</strong>  <br />
+            @mensagem
+        </div>
+    }
+}
+@*@if (!(ViewBag.status == null))
+    {
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Atenção!</strong>  <br />
+            @ViewBag.status
+        </div>
+    }*@

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<negocio.UI.Web.Areas.Admin.Models.FornecedorViewModel>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Fornecedores";
+}
+
+<h2>Listar fornecedores</h2>
+<h3> @ViewBag.status </h3>
+@Html.ActionLink(" ", "Create", null, new {@class = "btn btn-primary btn-lg glyphicon glyphicon-floppy-disk"})
+<br>
+
+<div style="width: 650px;">
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(c => c.Id).Titled("Código").Filterable(true);
+        columns.Add(c => c.Descricao).Titled("Descricao").Filterable(true);
+        columns.Add(c => c.Cnpj).Titled("Cnpj").Filterable(true);
+        columns.Add(c => c.Telefone).Titled("Telefone");
+        columns.Add(c => c.Endereco).Titled("Endereco");
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Edit", "Fornecedor", new {c.Id}, new {@class = "glyphicon glyphicon-eye-open", @title = "Editar"}));
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Delete", "Fornecedor", new {c.Id}, new {@class = "glyphicon glyphicon-trash", @title = "Excluir"}));
+    }).WithPaging(6).Sortable(true).EmptyText("Não existe nenhuma informação cadastrada")
+</div>

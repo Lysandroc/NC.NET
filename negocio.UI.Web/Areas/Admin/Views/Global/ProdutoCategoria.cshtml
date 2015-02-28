@@ -1,0 +1,105 @@
+﻿@model IEnumerable<negocio.Dominio.ProdutoCategoriaDTO>
+@using GridMvc.Html
+<style>
+    .modal-content {
+        height: 550px;
+        width: 700px;
+    }
+</style>
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    Selecionar Categoria
+</button>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="grid" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Categoria Produto</h4>
+            </div>
+            <div class="modal-body">
+                <div style="width: 650px;">
+                    @Html.Grid(Model).Columns(columns =>
+                    {
+                        //columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => ValorHidden(c.Id, c.Categoria + " - " + c.Marca + " - " + c.Modelo));
+                        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => ValorHidden(c.Id, c.Categoria + " - " + c.Marca));
+                        columns.Add(c => c.Id).Titled("Código").Filterable(true);
+                        columns.Add(c => c.Categoria).Titled("Categoria").Filterable(true);
+                        columns.Add(c => c.Marca).Titled("Marca").Filterable(true);
+                        //columns.Add(c => c.Modelo).Titled("Modelo");
+                    }).WithPaging(6).Sortable(true).EmptyText("Não existe nenhuma informação cadastrada")
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@helper ValorHidden(int id, string descricao)
+{
+    <input type="button" onclick=" Seta('@id', '@descricao') " title="Selecionar" class="glyphicon glyphicon-record" />
+}
+<script type="text/javascript">
+    function Seta(id, descricao) {
+        document.getElementById("CodigoCategoria").value = id;
+        document.getElementById("DescricaoCategoria").value = descricao;
+    }
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#DescricaoCategoria").autocomplete({
+            source: function(request, response) {
+                var customer = new Array();
+                $.ajax({
+                    url: "@(Url.Action("ConsultaProdutoCategoria", "Global"))",
+                    type: "POST",
+                    minLength: 3,
+                    async: false,
+                    cache: false,
+                    dataType: "json",
+                    data: { term: request.term },
+                    success: function(data) {
+                        for (var i = 0; i < data.length; i++) {
+                            customer[i] = { label: data[i].Value, Key: data[i].Key };
+                        }
+                    }
+                });
+                response(customer);
+            },
+            messages: {
+                noResults: "",
+                results: ""
+            },
+            select: function(event, ui) {
+                $("#CodigoCategoria").val(ui.item.Key);
+            }
+
+        });
+    });
+</script>
+
+
+
+
+
+
+@*<div class="form-group">
+        @Html.Label("CodigoCategoria", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.CodigoCategoria, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CodigoCategoria, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DescricaoCategoria, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.DescricaoCategoria, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.DescricaoCategoria, "", new { @class = "text-danger" })
+        </div>
+    </div>*@

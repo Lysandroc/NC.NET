@@ -1,0 +1,22 @@
+﻿@model IEnumerable<negocio.UI.Web.Areas.Admin.Models.ProdutoCategoriaViewModel>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "Categoria dos Produto";
+}
+
+<h2>Listar categoria dos produtos</h2>
+<h3> @ViewBag.status </h3>
+@Html.ActionLink(" ", "Create", null, new {@class = "btn btn-primary btn-lg glyphicon glyphicon-floppy-disk"})
+<br>
+
+
+<div style="width: 650px;">
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(c => c.Id).Titled("Código").Filterable(true);
+        columns.Add(c => c.Categoria).Titled("Categoria").Filterable(true);
+        //columns.Add(c => c.Modelo).Titled("Modelo");
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Edit", "ProdutoCategoria", new {c.Id}, new {@class = "glyphicon glyphicon-eye-open", @title = "Editar"}));
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Delete", "ProdutoCategoria", new {c.Id}, new {@class = "glyphicon glyphicon-trash", @title = "Excluir"}));
+    }).WithPaging(6).Sortable(true).EmptyText("Não existe nenhuma informação cadastrada")
+</div>

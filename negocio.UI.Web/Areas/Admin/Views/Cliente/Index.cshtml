@@ -1,0 +1,42 @@
+﻿@model IEnumerable<negocio.UI.Web.Areas.Admin.Models.ClienteViewModel>
+
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Clientes";
+}
+
+<h2>Listar clientes</h2>
+<h3> @ViewBag.status </h3>
+    @Html.ActionLink(" ", "Create", null, new {@class = "btn btn-primary btn-lg glyphicon glyphicon-floppy-disk"})
+<br>
+
+<div style="width: 650px;">
+    @Html.Grid(Model).Columns(columns =>
+    {
+        columns.Add(c => c.Id).Titled("Código").Filterable(true);
+        columns.Add(c => c.Nome).Titled("Nome").Filterable(true);
+        columns.Add(c => c.Sexo).Titled("Sexo").RenderValueAs(c => Sexo(c.Sexo));
+        columns.Add(c => c.DataNascimento).Titled("Data Nascimento");
+        columns.Add(c => c.Cpf).Titled("Cpf").Filterable(true);
+        columns.Add(c => c.Telefone).Titled("Telefone");
+        columns.Add(c => c.Celular).Titled("Celular");
+        columns.Add(c => c.Email).Titled("Email");
+        columns.Add(c => c.Endereco).Titled("Endereco");
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Edit", "Cliente", new {c.Id}, new {@class = "glyphicon glyphicon-eye-open", @title = "Editar"}));
+        columns.Add().Encoded(false).Sanitized(false).RenderValueAs(c => Html.ActionLink(" ", "Delete", "Cliente", new {c.Id}, new {@class = "glyphicon glyphicon-trash", @title = "Excluir"}));
+    }).WithPaging(6).Sortable(true).EmptyText("Não existe nenhuma informação cadastrada")
+</div>
+
+
+@helper Sexo(string sexo)
+{
+    if (sexo.ToUpper() == "M")
+    {
+        @:Masculino
+    }
+    else
+    {
+        @:Feminino
+    }
+}

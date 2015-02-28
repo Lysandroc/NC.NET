@@ -1,0 +1,37 @@
+﻿@model negocio.UI.Web.Areas.Admin.Models.ProdutoCategoriaViewModel
+
+@{
+    ViewBag.Title = "Editar Categoria";
+}
+<h3>Editar Categoria</h3>
+
+@Mensagem.Erro(ViewBag.status)
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Categoria, new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+               
+                @*@Html.RadioButton("Categoria", "Aro", Model.Categoria == "Aro" ? true : false)              Aro
+                @Html.RadioButton("Categoria", "Pneu",Model.Categoria == "Pneu" ? true : false)             Pneu
+                @Html.RadioButton("Categoria", "Acessórios", Model.Categoria == "Acessórios" ? true : false)Acessórios*@
+
+                @Html.ValidationMessageFor(model => model.Categoria, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-primary"})
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

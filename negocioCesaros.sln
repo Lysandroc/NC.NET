@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - App", "1 - App", "{B511117D-B2B9-42D4-B650-82E07D0AB033}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Dominio", "4 - Dominio", "{EF5B38D7-7189-4AF0-8325-08D2669700BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Repositorio", "5 - Repositorio", "{DEB10DB7-9A19-428C-AE6A-729BFCFDC8F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio.Repositorio", "negocio.Repositorio\negocio.Repositorio.csproj", "{6681BAB3-66D2-40D9-B736-76960A95C86A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio.Dominio", "negocio.Dominio\negocio.Dominio.csproj", "{552D757F-0E13-4BCC-A708-446A3424F02E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Intermediario", "3 - Intermediario", "{BE63DBCB-FC88-4B4A-89E4-2F08D22FEE88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio.Intermediario", "negocio.Intermediario\negocio.Intermediario.csproj", "{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio.UI.Web", "negocio.UI.Web\negocio.UI.Web.csproj", "{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Serviço", "2 - Serviço", "{4253CB8B-322D-4C36-BBF7-3725690E8449}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "negocio.Api", "negocio.Api\negocio.Api.csproj", "{91DE493C-09A6-48DE-A8D8-123FC00FF86C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6681BAB3-66D2-40D9-B736-76960A95C86A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6681BAB3-66D2-40D9-B736-76960A95C86A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6681BAB3-66D2-40D9-B736-76960A95C86A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6681BAB3-66D2-40D9-B736-76960A95C86A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{552D757F-0E13-4BCC-A708-446A3424F02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{552D757F-0E13-4BCC-A708-446A3424F02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{552D757F-0E13-4BCC-A708-446A3424F02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{552D757F-0E13-4BCC-A708-446A3424F02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DE493C-09A6-48DE-A8D8-123FC00FF86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DE493C-09A6-48DE-A8D8-123FC00FF86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DE493C-09A6-48DE-A8D8-123FC00FF86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DE493C-09A6-48DE-A8D8-123FC00FF86C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6681BAB3-66D2-40D9-B736-76960A95C86A} = {DEB10DB7-9A19-428C-AE6A-729BFCFDC8F2}
+		{552D757F-0E13-4BCC-A708-446A3424F02E} = {EF5B38D7-7189-4AF0-8325-08D2669700BD}
+		{FDA6CF04-F425-4D3E-A80F-E55BC2FCCBB5} = {BE63DBCB-FC88-4B4A-89E4-2F08D22FEE88}
+		{4E0DB5A1-002C-4DDF-901B-BBBA06AB927F} = {B511117D-B2B9-42D4-B650-82E07D0AB033}
+		{91DE493C-09A6-48DE-A8D8-123FC00FF86C} = {4253CB8B-322D-4C36-BBF7-3725690E8449}
+	EndGlobalSection
+EndGlobal

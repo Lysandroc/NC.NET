@@ -1,0 +1,64 @@
+﻿@model negocio.UI.Web.Areas.Admin.Models.FornecedorViewModel
+
+@{
+    ViewBag.Title = "Excluir Fornecedor";
+}
+
+<script>
+    $(document).ready(function() {
+        $('#Telefone').mask('(00)0000-0000');
+        $('#Cnpj').mask('00.000.000/0000-00', { reverse: true });
+    });
+</script>
+
+<h2>Excluir Fornecedor</h2>
+@Mensagem.Erro(ViewBag.status)
+<div>
+    <h4>Deseja realmente excluir esse registro? </h4>
+    <hr />
+    @Html.HiddenFor(Model => Model.Id)
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cnpj)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cnpj)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" />
+            @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-primary"})
+        </div>
+    }
+</div>

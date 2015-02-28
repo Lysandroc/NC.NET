@@ -1,0 +1,88 @@
+﻿@model negocio.UI.Web.Areas.Admin.Models.ProdutoViewModel
+
+@{
+    ViewBag.Title = "Excluir Produto";
+}
+
+<h2>Excluir Produto</h2>
+@Mensagem.Erro(ViewBag.status)
+<div>
+    <h4>Deseja realmente excluir esse registro? </h4>
+    <hr />
+    @Html.HiddenFor(c => c.Id)
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tamanho)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tamanho)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Referencia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Referencia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Marca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Marca)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.CodigoCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CodigoCategoria)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DescricaoCategoria)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DescricaoCategoria)
+        </dd>*@
+        <dt>
+            @Html.Label("Categoria")
+        </dt>
+
+        <dd>
+            @Html.Name(Model.idProdutoCategoria + " - " + Model.DescricaoCategoria)
+        </dd>
+
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            @Html.ActionLink("Voltar", "Index", null, new {@class = "btn btn-primary"})
+            <input type="submit" value="Excluir" class="btn btn-default" />
+        </div>
+    }
+</div>
