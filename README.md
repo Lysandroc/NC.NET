@@ -1,2 +1,9 @@
 # negocioCesaros.NET
-Desenvolvendo aplicativo para gerenciar loja de pequeno porte utilizando plataforma .net com framework Asp.net(MVC e WebApi) e Entity Framework - ORM
+
+
+Criação de uma aplicação para gerenciar negocios de uma loja de acessórios, o aplicativo está sendo desenvolvido com o intuído de aprender novas técnicas e de aperfeiçoar na plataforma .NET
+ 
+ #Asp.net MVC
+ #Asp.net WebApi
+ #Entity Framework
+
